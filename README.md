@@ -12,7 +12,8 @@ To import database you must already have an instance of bar-assistant in working
 2. Place database zip in your bar-assistant appdata folder. Be sure permissions for database zip file match your bar-assistant appdata (should be 33:33)
 3. With bar-assistant still running, shell into the bar-assistant container and run the import command like below:
 ```
-#This will create a shell into your Bar Assistant container. Replace "bar-assistant-container-name" with the name of your Bar Assistant container
+#This will create a shell into your Bar Assistant container.
+#Replace "bar-assistant-container-name" with the name of your Bar Assistant container
 docker exec -it bar-assistant-container-name /bin/sh
 
 #This is innitiate the database import
