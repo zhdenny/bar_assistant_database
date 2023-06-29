@@ -2,7 +2,7 @@
 database backup of personal Bar Assistant
 https://github.com/karlomikus/vue-salt-rim
 
-database contained in this dropbox folder will be updated weekly
+database contained in this dropbox folder will be updated daily
 https://www.dropbox.com/sh/micduo5h6fhqp61/AACJTwLBrvPo95JG5exeeNNYa?dl=0
 
 If you do an import on an existing instance, it will overwrite data related to cocktails, ingredients, glasses, images, etc. Basically all the data that can be considered shareable, so user data for example will not be exported/imported.
