@@ -16,7 +16,7 @@ To import database you must already have an instance of bar-assistant in working
 #Replace "bar-assistant-container-name" with the name of your Bar Assistant container
 docker exec -it bar-assistant-container-name /bin/sh
 
-#This is innitiate the database import
+#This will innitiate the database import
 php artisan bar:import
 ```
 4. You will be asked to confirm import. Confirm and wait for import to complete.
