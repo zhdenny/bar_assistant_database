@@ -21,3 +21,10 @@ php artisan bar:import
 ```
 4. You will be asked to confirm import. Confirm and wait for import to complete.
 5. Done.
+
+
+# Installation Help
+Always look at the official wiki for help first.
+https://bar-assistant.github.io/docs/
+
+I included my docker compose, env file, and nginx.proxy file only for reference 2023-08-04.
