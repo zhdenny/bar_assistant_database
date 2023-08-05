@@ -20,7 +20,12 @@ docker exec -it bar-assistant-container-name /bin/sh
 php artisan bar:import
 ```
 4. You will be asked to confirm import. Confirm and wait for import to complete.
-5. Done.
+5. Then run this command to clean up anything bad left behind.
+```
+php artisan bar:refresh-search --clear
+```
+6. Exit. Compose Down/Up to restart all containers.
+7. Done
 
 
 # Installation Help
