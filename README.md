@@ -1,4 +1,7 @@
 # bar_assistant_database
+
+This is currently on HOLD until I sort out Export/Import features for the new Version 3 setup.
+
 database backup of personal Bar Assistant
 https://github.com/karlomikus/vue-salt-rim
 
