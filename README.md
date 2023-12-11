@@ -26,7 +26,7 @@ sqlite3 storage/bar-assistant/database.ba3.sqlite 'SELECT * FROM bars;'   <<----
 php artisan bar:import-recipes name_of_file.zip
 ```
 4. You will be asked to enter the Bar ID of the bar you want to import to or leave empty to create a new one. The Bar ID is found in the URL for any cocktail in the Bar.
-   For example https://my.bar.com/cocktails/glowing-embers-1 has a bar ID of "1" (the number at the end of the URL). If you import into an existing Bar it will REPLACE (not add) all data in that Bar.
+   For example `https://my.bar.com/cocktails/glowing-embers-1` has a bar ID of "1" (the number at the end of the URL). If you import into an existing Bar it will REPLACE (not add) all data in that Bar.
    If you let it create a new bar you will be prompted to provide a new bar name. Then you will be prompted to assign the bar to your user ID.
 5. Then there will be a confirmation prompt and it will import after that.
 6. Exit. Compose Down/Up to restart all containers.
