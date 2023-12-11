@@ -18,8 +18,8 @@ To import database you must already have an instance of bar-assistant in working
 docker exec -it bar-assistant-container-name /bin/sh
 
 Here are a couple useful commands you can execute from inside the Bar-Assistant Container. You may need these later
-sqlite3 storage/bar-assistant/database.ba3.sqlite 'SELECT * FROM users;'  <<<-----This command lists all your users and their User IDs
-sqlite3 storage/bar-assistant/database.ba3.sqlite 'SELECT * FROM bars;'   <<<-----This command lists all your Bars and their Bar IDs
+sqlite3 storage/bar-assistant/database.ba3.sqlite 'SELECT * FROM users;'  <<----Command lists Users and their User IDs
+sqlite3 storage/bar-assistant/database.ba3.sqlite 'SELECT * FROM bars;'   <<----Command lists Bars and their Bar IDs
 
 #This will innitiate the database import
 #Replace "name_of_file.zip" with the database zip filename
