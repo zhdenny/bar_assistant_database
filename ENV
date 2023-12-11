@@ -1,6 +1,6 @@
 # Your Meilisearch master key
 # Find out more here: https://docs.meilisearch.com/learn/getting_started/quick_start.html#securing-meilisearch
-MEILI_MASTER_KEY=SOME_REALLY_LONG_STRING
+MEILI_MASTER_KEY=some_really_long_string
 
 
 # Base URL of the application
