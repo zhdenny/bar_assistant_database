@@ -2,7 +2,7 @@ version: "3"
 
 services:
   meilisearch:
-    image: getmeili/meilisearch:v1.4
+    image: getmeili/meilisearch:v1.5.1
     environment:
       - MEILI_MASTER_KEY=$MEILI_MASTER_KEY
       - MEILI_ENV=production
@@ -63,7 +63,7 @@ services:
       meilisearch:
         condition: service_started
     ports:
-      - 3000:3000
+      - 3001:3000
     volumes:
       - /mnt/user/appdata/ba-storage/nginx.conf:/etc/nginx/conf.d/default.conf
 volumes:
