@@ -10,7 +10,7 @@ If you do an import on an existing instance, it will overwrite data related to c
 
 To import database you must already have an instance of bar-assistant in working order. It must be on the latest version of Bar-Assistant as well. Then follow these steps:
 1. Download database zip from dropbox link above
-2. Place database zip in your bar-assistant appdata folder. Be sure permissions for database zip file match your bar-assistant appdata (should be 33:33)
+2. Place database zip in your bar-assistant appdata folder. Be sure permissions for database zip file match your bar-assistant appdata (should be 1000:1000)
 3. With bar-assistant still running, shell into the bar-assistant container and run the import command like below:
 ```
 #This will create a shell into your Bar Assistant container.
