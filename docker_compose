@@ -1,14 +1,14 @@
-version: "3"
-
+---
 services:
   meilisearch:
-    image: getmeili/meilisearch:v1.5.1
+    image: getmeili/meilisearch:v1.9
+    container_name: meilisearch
     environment:
       - MEILI_MASTER_KEY=$MEILI_MASTER_KEY
       - MEILI_ENV=production
     restart: unless-stopped
     volumes:
-      - meilisearch_data:/meili_data
+      - /mnt/user/appdata/meilisearch:/meili_data
 
   redis:
     image: redis
@@ -22,7 +22,8 @@ services:
       retries: 30
 
   bar-assistant:
-    image: barassistant/server:v3
+    image: barassistant/server:v4
+    container_name: bar-assistant
     depends_on:
       meilisearch:
         condition: service_started
@@ -30,18 +31,18 @@ services:
         condition: service_healthy
     environment:
       - APP_URL=$API_URL
-      - LOG_CHANNEL=stderr
       - MEILISEARCH_KEY=$MEILI_MASTER_KEY
       - MEILISEARCH_HOST=http://meilisearch:7700
-      - REDIS_HOST=redis
+      - REDIS_HOST=redis2
       - ALLOW_REGISTRATION=false
       - PARENT_INGREDIENT_SUBSTITUTE=true
     restart: unless-stopped
     volumes:
-      - bar_data:/var/www/cocktails/storage/bar-assistant
+      - /mnt/user/appdata/bar-assistant:/var/www/cocktails/storage/bar-assistant
 
   salt-rim:
-    image: barassistant/salt-rim:v2
+    image: barassistant/salt-rim:v3 
+    container_name: salt-rim
     depends_on:
       bar-assistant:
         condition: service_started
@@ -54,6 +55,7 @@ services:
 
   webserver:
     image: nginx:alpine
+    container_name: bar-webserver
     restart: unless-stopped
     depends_on:
       bar-assistant:
@@ -63,19 +65,6 @@ services:
       meilisearch:
         condition: service_started
     ports:
-      - 3001:3000
+      - 3000:3000
     volumes:
       - /mnt/user/appdata/ba-storage/nginx.conf:/etc/nginx/conf.d/default.conf
-volumes:
-  meilisearch_data:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /mnt/user/appdata/meilisearch
-  bar_data:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: /mnt/user/appdata/ba-storage
