@@ -1,3 +1,12 @@
+# What is this?
+BarAssistant/SaltRim is a Cocktail database self-hosted app. I did not like the default cocktail database the app comes pre-loaded with because it uses ingredients which were too ambiguous/vague (such as "Dark" "Gold" and "White" Rum). So I did a complete overhaul on the Ingredient Categories, Ingredients, and Cocktails. Special attention was taken to Rum as it is the most broad spirit category in both production and taste. I use high-resolution images and provide a bit of history to each cocktail along with "tags". Some example screenshots are below along with instructions on how to import my custom database into your own self-hosted instance of Bar Assistant / SaltRim.
+
+![image](https://github.com/user-attachments/assets/8f63837d-0624-4324-a935-e9b848544def)
+
+![palmetto-1](https://github.com/user-attachments/assets/83b45de3-b944-4502-9af3-5e4bca1866b1)
+
+
+
 # bar_assistant_database
 
 database backup of personal Bar Assistant
@@ -9,8 +18,8 @@ https://www.dropbox.com/sh/micduo5h6fhqp61/AACJTwLBrvPo95JG5exeeNNYa?dl=0
 If you do an import on an existing instance, it will overwrite data related to cocktails, ingredients, glasses, images, etc. Basically all the data that can be considered shareable, so user data for example will not be exported/imported.
 
 To import database you must already have an instance of bar-assistant in working order. It must be on the latest version of Bar-Assistant as well. Then follow these steps:
-1. Download database zip from dropbox link above
-2. Place database zip in your bar-assistant appdata folder. Be sure permissions for database zip file match your bar-assistant appdata (should be 1000:1000)
+1. Download database zip from dropbox link above. Be SURE you are downloading the zip file and NOT the entire Folder in Dropbox. Dropbox shows two download buttons - One is the folder and one is for an individual file in the folder.
+2. Place database zip in your bar-assistant appdata folder. Be sure permissions for database zip file match your bar-assistant appdata (should be 33:33 as of V4 of BarAssistant)
 3. With bar-assistant still running, shell into the bar-assistant container and run the import command like below:
 ```
 #This will create a shell into your Bar Assistant container.
