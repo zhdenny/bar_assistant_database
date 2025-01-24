@@ -1,7 +1,7 @@
 ---
 services:
   meilisearch:
-    image: getmeili/meilisearch:v1.9
+    image: getmeili/meilisearch:v1.12.0-rc.5
     container_name: meilisearch
     environment:
       - MEILI_MASTER_KEY=$MEILI_MASTER_KEY
@@ -33,7 +33,7 @@ services:
       - APP_URL=$API_URL
       - MEILISEARCH_KEY=$MEILI_MASTER_KEY
       - MEILISEARCH_HOST=http://meilisearch:7700
-      - REDIS_HOST=redis2
+      - REDIS_HOST=redis
       - ALLOW_REGISTRATION=false
       - PARENT_INGREDIENT_SUBSTITUTE=true
     restart: unless-stopped
