@@ -12,6 +12,7 @@ services:
 
   redis:
     image: redis
+    container_name: redis
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     restart: unless-stopped
