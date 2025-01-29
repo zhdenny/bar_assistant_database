@@ -68,4 +68,4 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - /mnt/user/appdata/ba-storage/nginx.conf:/etc/nginx/conf.d/default.conf
+      - /mnt/user/appdata/bar-assistant/nginx.conf:/etc/nginx/conf.d/default.conf
