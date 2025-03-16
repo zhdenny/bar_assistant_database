@@ -26,7 +26,7 @@ services:
       retries: 30
 
   bar-assistant:
-    image: barassistant/server:v4
+    image: barassistant/server:v5
     container_name: bar-assistant
     depends_on:
       meilisearch:
@@ -47,7 +47,7 @@ services:
       - /mnt/user/appdata/bar-assistant:/var/www/cocktails/storage/bar-assistant
 
   salt-rim:
-    image: barassistant/salt-rim:v3 
+    image: barassistant/salt-rim:v4 
     container_name: salt-rim
     depends_on:
       bar-assistant:
