@@ -1,11 +1,12 @@
 ---
 services:
   meilisearch:
-    image: getmeili/meilisearch:v1.12.0-rc.5
+    image: getmeili/meilisearch:v1.13.3
     container_name: meilisearch
     environment:
       - MEILI_MASTER_KEY=$MEILI_MASTER_KEY
       - MEILI_ENV=production
+      - MEILI_EXPERIMENTAL_DUMPLESS_UPGRADE=true
     restart: unless-stopped
     volumes:
       - /mnt/user/appdata/meilisearch:/meili_data

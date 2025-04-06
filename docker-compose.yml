@@ -1,7 +1,7 @@
 ---
 services:
   meilisearch:
-    image: getmeili/meilisearch:v1.13
+    image: getmeili/meilisearch:v1.13.3
     container_name: meilisearch
     environment:
       - MEILI_MASTER_KEY=$MEILI_MASTER_KEY
