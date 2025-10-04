@@ -21,19 +21,22 @@ To import database you must already have an instance of bar-assistant in working
 1. Download database zip from dropbox link above. Be SURE you are downloading the zip file and NOT the entire Folder in Dropbox. Dropbox shows two download buttons - One is the folder and one is for an individual file in the folder.
 2. Place database zip in your bar-assistant appdata directory. It MUST be placed only in this directory. Import will NOT work if you place the database zip in a subfolder. Be sure permissions for database zip file match your bar-assistant appdata (should be 33:33 as of V4 of BarAssistant)
 3. With bar-assistant still running, shell into the bar-assistant container and run the import command like below:
+This will create a shell into your Bar Assistant container. Replace "bar-assistant-container-name" with the name of your Bar Assistant container
 ```
-#This will create a shell into your Bar Assistant container.
-#Replace "bar-assistant-container-name" with the name of your Bar Assistant container
 docker exec -it bar-assistant-container-name /bin/sh
+```
 
-#Here are a couple useful commands you can execute from inside the Bar-Assistant Container. You may need these later
+Here are a couple useful commands you can execute from inside the Bar-Assistant Container. You may need these later
+```
 sqlite3 storage/bar-assistant/database.ba3.sqlite 'SELECT * FROM users;'  <<----Command lists Users and their User IDs
 sqlite3 storage/bar-assistant/database.ba3.sqlite 'SELECT * FROM bars;'   <<----Command lists Bars and their Bar IDs
+```
 
-#This will innitiate the database import
-#Replace "name_of_file.zip" with the database zip filename. FULL FILENAME ONLY, WITHOUT PATHS.
+This will innitiate the database import. Replace "name_of_file.zip" with the database zip filename. FULL FILENAME ONLY, WITHOUT PATHS.
+```
 php artisan bar:import-recipes name_of_file.zip
 ```
+
 4. You will be asked to enter the Bar ID of the bar you want to import to or leave empty to create a new one. The Bar ID is found in the URL for any cocktail in the Bar.
    For example `https://my.bar.com/cocktails/glowing-embers-1` has a bar ID of "1" (the number at the end of the URL). If you import into an existing Bar it will REPLACE (not add) all data in that Bar.
    If you let it create a new bar you will be prompted to provide a new bar name. Then you will be prompted to assign the bar to your user ID.
