@@ -20,8 +20,7 @@ If you do an import on an existing instance, it will overwrite data related to c
 To import database you must already have an instance of bar-assistant in working order. It must be on the latest version of Bar-Assistant as well. Then follow these steps:
 1. Download database zip from dropbox link above. Be SURE you are downloading the zip file and NOT the entire Folder in Dropbox. Dropbox shows two download buttons - One is the folder and one is for an individual file in the folder.
 2. Place database zip in your bar-assistant appdata directory. It MUST be placed only in this directory. Import will NOT work if you place the database zip in a subfolder. Be sure permissions for database zip file match your bar-assistant appdata (should be 33:33 as of V4 of BarAssistant)
-3. With bar-assistant still running, shell into the bar-assistant container and run the import command like below:
-This will create a shell into your Bar Assistant container. Replace "bar-assistant-container-name" with the name of your Bar Assistant container
+3. With bar-assistant still running, shell into the bar-assistant container. This will create a shell into your Bar Assistant container. Replace "bar-assistant-container-name" with the name of your Bar Assistant container
 ```
 docker exec -it bar-assistant-container-name /bin/sh
 ```
