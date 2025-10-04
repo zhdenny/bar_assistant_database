@@ -19,7 +19,7 @@ If you do an import on an existing instance, it will overwrite data related to c
 
 To import database you must already have an instance of bar-assistant in working order. It must be on the latest version of Bar-Assistant as well. Then follow these steps:
 1. Download database zip from dropbox link above. Be SURE you are downloading the zip file and NOT the entire Folder in Dropbox. Dropbox shows two download buttons - One is the folder and one is for an individual file in the folder.
-2. Place database zip in your bar-assistant appdata folder. Be sure permissions for database zip file match your bar-assistant appdata (should be 33:33 as of V4 of BarAssistant)
+2. Place database zip in your bar-assistant appdata directory. It MUST be placed only in this directory. Import will NOT work if you place the database zip in a subfolder. Be sure permissions for database zip file match your bar-assistant appdata (should be 33:33 as of V4 of BarAssistant)
 3. With bar-assistant still running, shell into the bar-assistant container and run the import command like below:
 ```
 #This will create a shell into your Bar Assistant container.
@@ -31,7 +31,7 @@ sqlite3 storage/bar-assistant/database.ba3.sqlite 'SELECT * FROM users;'  <<----
 sqlite3 storage/bar-assistant/database.ba3.sqlite 'SELECT * FROM bars;'   <<----Command lists Bars and their Bar IDs
 
 #This will innitiate the database import
-#Replace "name_of_file.zip" with the database zip filename
+#Replace "name_of_file.zip" with the database zip filename. FULL FILENAME ONLY, WITHOUT PATHS.
 php artisan bar:import-recipes name_of_file.zip
 ```
 4. You will be asked to enter the Bar ID of the bar you want to import to or leave empty to create a new one. The Bar ID is found in the URL for any cocktail in the Bar.
@@ -41,6 +41,10 @@ php artisan bar:import-recipes name_of_file.zip
 6. Exit. Compose Down/Up to restart all containers.
 7. Done
 
+# Troubleshooting
+Sometimes cocktails/ingredients do not show ingredients or search is not performing correctly. This is typically an issue with meilisearch. To fix it, you need to optimize bar and refresh search.
+1. Go to bars, click edit bar, then click `Optimize bar`
+2. `docker compose exec bar-assistant php artisan bar:refresh-search`
 
 # Installation Help
 Always look at the official wiki for help first.
