@@ -36,7 +36,7 @@ This will innitiate the database import. Replace "name_of_file.zip" with the dat
 php artisan bar:import-recipes name_of_file.zip
 ```
 
-4. You will be asked to enter the Bar ID of the bar you want to import to or leave empty to create a new one. The Bar ID is found in the URL for any cocktail in the Bar.
+4. You will be asked to enter the Bar ID of the bar you want to import to or leave empty to create a new one. The Bar ID is found in the URL for any cocktail in the Bar. If this is the FIRST time importing my database, I highly recommend you create a new bar instead of overwriting an existing bar. This can avoid potential errors in the import process.
    For example `https://my.bar.com/cocktails/glowing-embers-1` has a bar ID of "1" (the number at the end of the URL). If you import into an existing Bar it will REPLACE (not add) all data in that Bar.
    If you let it create a new bar you will be prompted to provide a new bar name. Then you will be prompted to assign the bar to your user ID.
 5. Then there will be a confirmation prompt and it will import after that.
