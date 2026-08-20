@@ -1,4 +1,3 @@
----
 services:
   meilisearch:
     image: getmeili/meilisearch:v1.20.0
@@ -12,16 +11,14 @@ services:
       - 7702:7700
     volumes:
       - /mnt/user/appdata/meilisearch:/meili_data
-
   redis:
     image: redis
     container_name: redis
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     restart: unless-stopped
-
   bar-assistant:
-    image: barassistant/server:v5
+    image: barassistant/server:v6
     container_name: bar-assistant
     depends_on:
       - meilisearch
@@ -40,9 +37,8 @@ services:
       - 8087:8080
     volumes:
       - /mnt/user/appdata/bar-assistant:/var/www/cocktails/storage/bar-assistant
-
   salt-rim:
-    image: barassistant/salt-rim:v4 
+    image: barassistant/salt-rim:v5
     container_name: salt-rim
     depends_on:
       - bar-assistant

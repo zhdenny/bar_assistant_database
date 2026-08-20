@@ -1,7 +1,6 @@
----
 services:
   meilisearch:
-    image: getmeili/meilisearch:v1.13.3
+    image: getmeili/meilisearch:v1.20.0
     container_name: meilisearch
     environment:
       - MEILI_MASTER_KEY=$MEILI_MASTER_KEY
@@ -10,27 +9,18 @@ services:
     restart: unless-stopped
     volumes:
       - /mnt/user/appdata/meilisearch:/meili_data
-
   redis:
     image: redis
     container_name: redis
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 1s
-      timeout: 3s
-      retries: 30
-
   bar-assistant:
-    image: barassistant/server:v4
+    image: barassistant/server:v6
     container_name: bar-assistant
     depends_on:
-      meilisearch:
-        condition: service_started
-      redis:
-        condition: service_healthy
+      - meilisearch
+      - redis
     environment:
       - APP_URL=$API_URL
       - MEILISEARCH_KEY=$MEILI_MASTER_KEY
@@ -41,20 +31,17 @@ services:
     restart: unless-stopped
     volumes:
       - /mnt/user/appdata/bar-assistant:/var/www/cocktails/storage/bar-assistant
-
   salt-rim:
-    image: barassistant/salt-rim:v3 
+    image: barassistant/salt-rim:v5
     container_name: salt-rim
     depends_on:
-      bar-assistant:
-        condition: service_started
+      - bar-assistant
     environment:
       - API_URL=$API_URL
       - MEILISEARCH_URL=$MEILISEARCH_URL
       - BAR_NAME=Curfew
       - DESCRIPTION=6PM Bartender
     restart: unless-stopped
-
   webserver:
     image: nginx:alpine
     container_name: bar-webserver
